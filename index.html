@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Shop</title>
+    <style>
+        body {
+            font-weight: 200;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-bg-color);
+        }
+
+        button {
+            border: 0;
+            border-radius: 5px;
+            margin-top: 50px;
+            color: var(--tg-theme-button-color);
+            background: var(--tg-theme-button-text-color);
+        }
+
+        button:hover{
+            background: var(--tg-theme-secondary-bg-color);
+        }
+    </style>
 </head>
 <body>
     <div id="main">
         <h1>Привет мир</h1>
         <button id="buy">Купить</button>
     </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
