@@ -111,15 +111,15 @@
             let phone = document.getElementById("user_phone").value;
 
             if(phone.length < 11) {
-                document.getElementById("errors").insertText = 'Ошибка в номере телефона';
+                document.getElementById("errors").innerText = 'Ошибка в номере телефона';
                 return;
             }
             if(name.length < 1) {
-                document.getElementById("errors").insertText = 'Ошибка в имени';
+                document.getElementById("errors").innerText = 'Ошибка в имени';
                 return;
             }
             if(email.length < 2) {
-                document.getElementById("errors").insertText = 'Ошибка в почте';
+                document.getElementById("errors").innerText = 'Ошибка в почте';
                 return;
             }
 
