@@ -76,14 +76,17 @@
 </head>
 <body>
     <div id="main">
-        <h1>Привет мир</h1>
+        <h1>Тестовый WebApp</h1>
+        <p>По нажатию на кнопку купить откроется форма</p>
         <button id="buy">Купить</button>
     </div>
 
     <form id="form">
+        <p>Оформление поккупки</p>
         <input type="text" placeholder="Имя" id="user_name">
         <input type="text" placeholder="Email" id="user_email">
         <input type="text" placeholder="Телефон" id="user_phone">
+        <div id="errors></div>
         <button type="button" id="order">Оформить</button>
     </form>
         
@@ -93,6 +96,8 @@
         let buy = document.getElementById("buy");
         let order = document.getElementById("order");
 
+        tg.expand();
+
         buy.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
@@ -100,6 +105,33 @@
         });
 
         order.addEventListener("click", () => {
+            document.getElementById("errors").insertText = '';
+            let name = document.getElementById("user_name").value;
+            let email = document.getElementById("user_email").value;
+            let phone = document.getElementById("user_phone").value;
+
+            if(phone.length < 11) {
+                document.getElementById("errors").insertText = 'Ошибка в номере телефона';
+                return;
+            }
+            if(name.length < 1) {
+                document.getElementById("errors").insertText = 'Ошибка в имени';
+                return;
+            }
+            if(email.length < 2) {
+                document.getElementById("errors").insertText = 'Ошибка в почте';
+                return;
+            }
+
+            let data = {
+                name: name,
+                email: email,
+                phone: phone
+            }
+
+            
+            tg.sendData(JSON.stringify(data))
+            
             tg.close();
         });
     </script>
